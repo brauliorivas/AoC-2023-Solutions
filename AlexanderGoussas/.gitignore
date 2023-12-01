@@ -1,0 +1,6 @@
+*.txt
+dist-newstyle
+*.hp
+*.prof
+TAGS
+cabal.project.local~
