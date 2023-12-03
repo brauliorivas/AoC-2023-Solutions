@@ -12,10 +12,11 @@ category:           Algorithms
 extra-source-files: README.md
 
 executable aoc
-    ghc-options:      -threaded -O2 -Wall -Wno-name-shadowing
+    ghc-options:      -threaded -O2 -Wall -Wno-name-shadowing -Wno-orphans
     main-is:          Main.hs
     other-modules:    Control.Monad.Aoc
                     , Aoc.Year2023.Day01
+                    , Aoc.Year2023.Day02
     build-depends:    base ^>=4.16.4.0
                     , containers
                     , text

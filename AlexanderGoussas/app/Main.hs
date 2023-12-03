@@ -8,6 +8,7 @@ import qualified Data.Text.IO           as TIO
 import           Options.Applicative
 
 import           Aoc.Year2023.Day01     ()
+import           Aoc.Year2023.Day02     ()
 import           Control.Monad.Aoc
 
 
@@ -49,6 +50,7 @@ outStr = liftIO . print
 
 data Puzzle (day :: Nat) (year :: Nat) where
   Y2023D01 :: Puzzle 1 2023
+  Y2023D02 :: Puzzle 2 2023
 
 data SomePuzzle =
   forall day year.
@@ -60,6 +62,7 @@ data SomePuzzle =
 
 puzzle :: Options -> SomePuzzle
 puzzle (Options 1 2023 _ ) = SomePuzzle Y2023D01
+puzzle (Options 2 2023 _)  = SomePuzzle Y2023D02
 puzzle _                   = error "Invalid puzzle day and year"
 
 runPuzzle
@@ -70,7 +73,7 @@ runPuzzle
   , Show (Result day year)
   ) => Puzzle day year -> Int -> IO ()
 runPuzzle _ part = do
-  input <- TIO.readFile "input.txt"
+  input <- TIO.readFile "input02.txt"
   runAoc (AocData input) $ do
     case part of
       1 -> outStr =<< partOne (day @day) (year @year)
